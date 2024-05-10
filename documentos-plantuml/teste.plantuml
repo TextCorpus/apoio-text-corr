@@ -1,0 +1,27 @@
+@startuml
+
+class Bebê {
+- nome: String
+- dataNascimento: Date
+- pesoNascimento: float
+- altura: float
+- mãe: Mãe
+- médico: Médico
+}
+
+class Mãe {
+- nome: String
+- endereço: String
+- telefone: String
+- dataNascimento: Date
+}
+
+class Médico {
+- nome: String
+- CRM: String
+}
+
+Bebê "1" --> "1" Mãe
+Bebê "1" --> "1" Médico
+
+@enduml

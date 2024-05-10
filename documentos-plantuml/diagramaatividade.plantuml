@@ -1,0 +1,46 @@
+@startuml
+
+start
+
+:Abre a aplicação;
+:Insere nome de usuário e senha;
+if (Credenciais válidas?) then (sim)
+  :Acesso ao sistema;
+  :Visualiza o painel principal;
+else (não)
+  :Exibe mensagem de erro;
+  :Oferece recuperar senha;
+endif
+
+:Seleciona função no painel;
+
+partition Cadastro_de_Lançamentos {
+  :Escolhe adicionar lançamento;
+  :Preenche descrição, data, hora e valor;
+  :Seleciona tipo (Recebido ou Pago);
+  :Submete formulário;
+  :Valida dados e registra lançamento;
+}
+
+partition Visualização_de_Histórico {
+  :Escolhe visualizar histórico;
+  :Exibe tabela de lançamentos;
+  :Permite filtros e seleção de detalhes;
+}
+
+partition Edição_de_Lançamentos {
+  :Seleciona editar lançamento;
+  :Atualiza informações no formulário;
+  :Submete alterações;
+  :Valida dados e aplica modificações;
+}
+
+partition Deletar_Lançamentos {
+  :Seleciona deletar lançamento;
+  :Solicita confirmação;
+  :Se confirmado, remove lançamento;
+}
+
+stop
+
+@enduml

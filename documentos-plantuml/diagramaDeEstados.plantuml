@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+[*] --> TelaDeLogin : Usuário abre a aplicação
+TelaDeLogin --> ValidaçãoDeCredenciais : Insere nome de usuário e senha
+ValidaçãoDeCredenciais --> PainelPrincipal : Credenciais válidas
+ValidaçãoDeCredenciais --> MensagemDeErro : Credenciais inválidas
+
+MensagemDeErro --> TelaDeLogin : Tentar novamente
+MensagemDeErro --> RecuperaçãoDeSenha : Escolhe recuperar senha
+
+PainelPrincipal --> CadastroDeLançamentos : Escolhe adicionar lançamento
+PainelPrincipal --> VisualizaçãoDeHistórico : Escolhe visualizar histórico
+PainelPrincipal --> EdiçãoDeLançamentos : Escolhe editar lançamento
+PainelPrincipal --> DeletarLançamentos : Escolhe deletar lançamento
+
+CadastroDeLançamentos --> ValidaçãoDeLançamento : Submete lançamento
+ValidaçãoDeLançamento --> PainelPrincipal : Lançamento registrado
+
+VisualizaçãoDeHistórico --> DetalhesDeLançamento : Seleciona lançamento
+DetalhesDeLançamento --> PainelPrincipal : Retorna ao painel
+
+EdiçãoDeLançamentos --> ValidaçãoDeLançamentoEdição : Submete alterações
+ValidaçãoDeLançamentoEdição --> PainelPrincipal : Lançamento editado
+
+DeletarLançamentos --> ConfirmaçãoDeExclusão : Confirma exclusão
+ConfirmaçãoDeExclusão --> PainelPrincipal : Lançamento deletado
+
+PainelPrincipal --> IncluirLançamentos : Escolhe incluir informações em lançamento
+IncluirLançamentos --> ValidaçãoDeLançamentoInclusão : Submete novas informações
+ValidaçãoDeLançamentoInclusão --> PainelPrincipal : Informações incluídas
+
+[*] <-- PainelPrincipal : Logout
+
+@enduml

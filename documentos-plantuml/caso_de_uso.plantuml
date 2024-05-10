@@ -1,0 +1,22 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor Usuario as "Usuário"
+
+rectangle "Sistema de Livro Caixa" {
+    (Login) as (Login)
+    (Novo Lançamento) as (AddLancamento)
+    (Editar Lançamento) as (EditLancamento)
+    (Excluir Lançamento) as (DeleteLancamento)
+    (Visualizar Lançamentos) as (ViewLancamento)
+}
+
+Usuario -- (Login)
+Usuario -- (AddLancamento)
+Usuario -- (EditLancamento)
+Usuario -- (DeleteLancamento)
+Usuario -- (ViewLancamento)
+
+@enduml
